@@ -14,12 +14,12 @@ public class Calculator {
      *
      * @param a = choosen numbers
      */
-    public static void addNumbers(double... a) {
+    public String addNumbers(double... a) {
         double result = 0;
         for (int i = 0; i < a.length; i++) {
             result += a[i];
         }
-        System.out.println(result);
+        return ""+result;
     }
 
     /**
@@ -27,12 +27,12 @@ public class Calculator {
      *
      * @param a = choosen numbers
      */
-    public static void substractNumbers(double... a) {
+    public String substractNumbers(double... a) {
         double result = 0;
         for (int i = 0; i < a.length; i++) {
             result -= a[i];
         }
-        System.out.println(result);
+        return ""+result;
     }
 
     /**
@@ -40,12 +40,12 @@ public class Calculator {
      *
      * @param a = choosen numbers
      */
-    public static void multiplyNumbers(double... a) {
+    public String multiplyNumbers(double... a) {
         double result = 1;
         for (int i = 0; i < a.length; i++) {
             result *= a[i];
         }
-        System.out.println(result);
+        return ""+result;
     }
 
     /**
@@ -54,11 +54,11 @@ public class Calculator {
      * @param a = first number
      * @param b = second number
      */
-    public static void divideNumbers(double a, double b) {
+    public String divideNumbers(double a, double b) {
         if (b != 0)
-            System.out.println((double) a / b);
+            return (double)a/b +"";
         else
-            System.out.println("You cannot divide by ZERO!");
+            return "You cannot divide by ZERO!";
     }
 
     /**
@@ -66,7 +66,7 @@ public class Calculator {
      * @param number
      * @param rank
      */
-    public static void sqrt(double number, double rank) {
+    public String sqrt(double number, double rank) {
 
         double result = number;
         double tmp = Math.pow(result, (rank - 1));
@@ -77,9 +77,9 @@ public class Calculator {
             tmp = Math.pow(result, rank - 1);
         }
         if (number < 0 && rank % 2 != 0)
-            System.out.println(0 - result);
+            return ""+(0 - result);
         else
-            System.out.printf("%8.3f",result);
+            return ""+result;
     }
 
     /**
@@ -87,24 +87,24 @@ public class Calculator {
      * @param number
      * @param pow
      */
-    public static void power(double number, int pow) {
+    public String power(double number, int pow) {
         double result = 1;
 
         if (pow == 0)
-            System.out.println(1.0);
+            return ""+1.0;
         else if (pow == 1)
-            System.out.println(number);
+            return ""+ number;
 
         else {
             for (int i = 1; i <= pow; i++) {
                 result = result * number;
             }
-            System.out.println(result);
+            return ""+result;
         }
     }
 
-    public static void power(double number, double pow) {
-        System.out.println(Math.pow(number, pow));
+    public String power(double number, double pow) {
+       return Math.pow(number, pow)+"";
     }
 
     /**
@@ -112,22 +112,22 @@ public class Calculator {
      * @param number
      * @param base
      */
-    public static void convertToBinary(int number, int base) {
+    public String convertToBinary(int number, int base) {
         final int MAXIMUM_BASE = 36;
         final String patternText = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String result = " ";
 
         if (base > MAXIMUM_BASE || base < 2)
-            System.out.println("Wrong data");
+            return "Wrong data";
         else if (number == 0)
-            System.out.println(0);
+            return 0+"";
         else {
             do {
                 result = patternText.charAt(number % base) + result;
                 number = number / base;
             } while (number > 0);
 
-            System.out.println(result);
+            return result;
         }
     }
 
@@ -154,7 +154,7 @@ public class Calculator {
      * @param str
      * @param base
      */
-    public static void convertBinaryToDecimal(String str, int base) {
+    public String convertBinaryToDecimal(String str, int base) {
         final int MAXIMUM_BASE = 36;
         final String patternText = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         int value;
@@ -163,34 +163,34 @@ public class Calculator {
         str = str.toUpperCase();
 
         if (base > MAXIMUM_BASE || base < 2)
-            System.out.println(0);
+            return 0+"";
 
         for (int i = str.length() - 1; i >= 0; i--) {
             value = valueOf(str.charAt(i), base);
             if (value < 0) {
-                System.out.println(0);
+                return 0+"";
             } else {
                 result = result + (value * rank);
                 rank = rank * base;
             }
         }
-        System.out.println(result);
+        return result+"";
     }
 
     /**
      * calculate a median number
      * @param a
      */
-    public static void median(double... a)
+    public String median(double... a)
     {
         double value;
         if(a.length % 2 == 0)
         {
-            System.out.println(a[a.length / 2-1] + " , "+ a[a.length / 2]);
+            return a[a.length / 2-1] + " , "+ a[a.length / 2];
         }
         else {
             value = a[a.length / 2];
-            System.out.println(value);
+            return value+"";
         }
     }
 
@@ -198,7 +198,7 @@ public class Calculator {
      * calculate average of numbers
      * @param a
      */
-    public static void calculateAverage(double...a)
+    public String calculateAverage(double...a)
     {
         double result = 0;
         double average = 0;
@@ -208,7 +208,7 @@ public class Calculator {
             result = result + a[i];
             average = result/a.length;
         }
-        System.out.println(average);
+        return average+"";
     }
 
 }
