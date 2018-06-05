@@ -28,8 +28,8 @@ public class Calculator {
      * @param a = choosen numbers
      */
     public String substractNumbers(double... a) {
-        double result = 0;
-        for (int i = 0; i < a.length; i++) {
+        double result = a[0];
+        for (int i = 1; i < a.length; i++) {
             result -= a[i];
         }
         return ""+result;
